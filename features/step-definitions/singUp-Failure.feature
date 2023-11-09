@@ -1,0 +1,17 @@
+Feature: Sign up into losestudiantes
+    As an user I want to sign up within losestudiantes website in order to rate teachers
+
+    Scenario Outline: Sign up failed (two cases: email repeated and email empty)
+
+        Given I go to losestudiantes home screen
+        When I open the login screen
+        And I open the sign up screen
+        And I fill sign up form with <name> <lastname> <email> <password> and <repeatpassword>
+        And I try to sign up
+        Then I expect to see <error>
+
+        Examples:
+            | name     | lastname      | email                             | password | repeatpassword | error                                  |
+            | Prueba   | Automatizada  | prueba-automatizada@yopmail.com   | 12345678 | 12345678       | "Ya existe un usuario con este correo" |
+            | Prueba   | Automatizada  |                                   | 12345678 | 12345678       | "Ingresa un correo electrónico"        |
+
