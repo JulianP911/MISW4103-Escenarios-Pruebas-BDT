@@ -20,7 +20,7 @@ Scenario Outline: Login successful with right inputs
     When I open the login screen
     And I fill with <email> and <password>
     And I try to login
-    Then I expect to successful login
+    Then I expect to log out
 
     Examples:
         | email                             | password    |
